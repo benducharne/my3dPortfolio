@@ -345,7 +345,6 @@ svg{
   color: var(--color-blue);
 }
 
-
 .green-external-link{
   color: var(--color-green);
 }
@@ -457,6 +456,7 @@ svg{
   text-transform: uppercase;
   color: var(--color-text);
 }
+
 
 
 /* Other colors override */

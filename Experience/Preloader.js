@@ -327,7 +327,7 @@ export default class Preloader extends EventEmitter {
         .to(
           this.roomChildren.chair.rotation,
           {
-            y: 4 * Math.PI + Math.PI / 4,
+            y: 4 * Math.PI,
             ease: "power2.out",
             duration: 1,
           },
