@@ -457,6 +457,10 @@ svg{
   color: var(--color-text);
 }
 
+.third-sub{
+  font-size: 14px;
+}
+
 
 
 /* Other colors override */
