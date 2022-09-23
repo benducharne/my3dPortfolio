@@ -302,17 +302,13 @@ export default class Preloader extends EventEmitter {
           y: 1,
           z: 1,
         })
-        .to(
-          this.roomChildren.chair.scale,
-          {
-            x: 1,
-            y: 1,
-            z: 1,
-            ease: "back.out(2.2)",
-            duration: 0.5,
-          },
-          "chair"
-        )
+        .to(this.roomChildren.chair.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+          ease: "back.out(2.2)",
+          duration: 0.5,
+        })
         .to(
           this.roomChildren.fish.scale,
           {
@@ -322,7 +318,7 @@ export default class Preloader extends EventEmitter {
             ease: "back.out(2.2)",
             duration: 0.5,
           },
-          "chair"
+          "<"
         )
         .to(
           this.roomChildren.chair.rotation,
@@ -331,15 +327,18 @@ export default class Preloader extends EventEmitter {
             ease: "power2.out",
             duration: 1,
           },
-          "chair"
+          "<"
         )
-        .to(this.roomChildren.ben.children[2].scale, {
-          x: 10,
-          y: 10,
-          z: 10,
-          ease: "back.out(2.2)",
-          duration: 0.5,
-        })
+        .to(
+          this.roomChildren.ben.children.filter((c) => c.type != "Bone").map((c) => c.scale),
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+            ease: "back.out(2.2)",
+            duration: 0.5,
+          }
+        )
         .to(".arrow-svg-wrapper", {
           opacity: 1,
           onComplete: resolve,
