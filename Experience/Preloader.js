@@ -170,6 +170,15 @@ export default class Preloader extends EventEmitter {
           z: 1,
         })
         .to(
+          this.roomChildren.ben.children.filter((c) => c.type != "Bone").map((c) => c.scale),
+          {
+            x: 1,
+            y: 1,
+            z: 1,
+          },
+          "<"
+        )
+        .to(
           this.roomChildren.cube.scale,
           {
             x: 0,
@@ -302,13 +311,6 @@ export default class Preloader extends EventEmitter {
           y: 1,
           z: 1,
         })
-        .to(this.roomChildren.chair.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-          ease: "back.out(2.2)",
-          duration: 0.5,
-        })
         .to(
           this.roomChildren.fish.scale,
           {
@@ -319,25 +321,6 @@ export default class Preloader extends EventEmitter {
             duration: 0.5,
           },
           "<"
-        )
-        .to(
-          this.roomChildren.chair.rotation,
-          {
-            y: 440 * (Math.PI / 180),
-            ease: "power2.out",
-            duration: 1,
-          },
-          "<"
-        )
-        .to(
-          this.roomChildren.ben.children.filter((c) => c.type != "Bone").map((c) => c.scale),
-          {
-            x: 1,
-            y: 1,
-            z: 1,
-            ease: "back.out(2.2)",
-            duration: 0.5,
-          }
         )
         .to(".arrow-svg-wrapper", {
           opacity: 1,
