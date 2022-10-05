@@ -67,6 +67,7 @@ export default class Room {
           if (c.type != "Bone") {
             c.castShadow = true;
             c.receiveShadow = true;
+            c.frustumCulled = false;
             c.scale.set(0, 0, 0);
           }
         });

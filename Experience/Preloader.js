@@ -164,20 +164,19 @@ export default class Preloader extends EventEmitter {
           },
           "same"
         )
-        .set(this.roomChildren.body.scale, {
-          x: 1,
-          y: 1,
-          z: 1,
-        })
         .to(
           this.roomChildren.ben.children.filter((c) => c.type != "Bone").map((c) => c.scale),
           {
             x: 1,
             y: 1,
             z: 1,
-          },
-          "<"
+          }
         )
+        .set(this.roomChildren.body.scale, {
+          x: 1,
+          y: 1,
+          z: 1,
+        })
         .to(
           this.roomChildren.cube.scale,
           {
