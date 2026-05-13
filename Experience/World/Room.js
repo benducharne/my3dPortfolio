@@ -25,7 +25,6 @@ export default class Room {
   }
 
   setModel() {
-    console.log(this.actualRoom.children);
     this.actualRoom.children.forEach((child) => {
       child.castShadow = true;
       child.receiveShadow = true;
@@ -37,15 +36,14 @@ export default class Room {
         });
       }
 
-      console.log("child", child);
-
       if (child.name === "Aquarium") {
-        child.children[0].material = new THREE.MeshPhysicalMaterial();
-        child.children[0].material.roughness = 0;
-        child.children[0].material.color.set(0x549dd2);
-        child.children[0].material.ior = 3;
-        child.children[0].material.transmission = 1;
-        child.children[0].material.opacity = 1;
+        child.children[0].material = new THREE.MeshStandardMaterial({
+          color: 0x549dd2,
+          roughness: 0,
+          metalness: 0,
+          transparent: true,
+          opacity: 0.4,
+        });
       }
 
       if (child.name === "Computer") {
@@ -102,7 +100,6 @@ export default class Room {
   }
 
   setAnimation() {
-    console.log("animations", this.room.animations);
     this.mixer = new THREE.AnimationMixer(this.actualRoom);
     this.swim = this.mixer.clipAction(this.room.animations[0]);
     this.swim.play();
